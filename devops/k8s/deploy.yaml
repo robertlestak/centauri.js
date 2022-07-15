@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centauri-js-v1
+  namespace: centauri
+  labels:
+    app: centauri-js
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: centauri-js
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: centauri-js
+        version: v1
+    spec:
+      containers:
+      - name: centauri-js
+        image: registry.lestak.sh/centauri-js:v0.0.1
+        resources:
+          limits:
+            memory: 500Mi
+            cpu: 500m
+          requests:
+            memory: 50Mi
+            cpu: 50m
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        - name: STATIC_DIR
+          value: /static

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: centauri-js
+  namespace: centauri
+  labels:
+    app: centauri-js
+spec:
+  type: ClusterIP
+  selector:
+    app: centauri-js
+  ports:
+    - protocol: TCP
+      port: 80
+      name: http
+      targetPort: 80

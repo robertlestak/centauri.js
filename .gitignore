@@ -1,0 +1,5 @@
+.env
+*.swp
+.DS_Store
+static/main.wasm
+static/wasm_exec.js
